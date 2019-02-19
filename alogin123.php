@@ -2,15 +2,11 @@
 $username=$_POST['username'];
 $password=$_POST['password'];
 $con=mysqli_connect('localhost','root');
-mysqli_select_db($con,'project123');
-$q="select * from admin Where username='$username'"; 
-$p="select * from admin Where password='$password'";
+mysqli_select_db($con,'bhuvi');
+$q="select * from admin Where username='$username' and password='$password' "; 
 $result=mysqli_query($con,$q);
-$result1=mysqli_query($con,$p);
 $num=mysqli_num_rows($result);
-$num1=mysqli_num_rows($result1);
-
-if(($num)&&($num1))
+if(($num))
 {	header('Location: receptionist1.html');}
 else
 	echo "WRONG USERNAME OR PASSWORD";
